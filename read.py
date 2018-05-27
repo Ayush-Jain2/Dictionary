@@ -9,6 +9,12 @@ def proper_noun(word):
     w=" ".join(temp)
     return w
 
+#def acronym(word):
+
+
+
+
+
 def translate(word):
     if word in data:
         return data[word]
@@ -16,6 +22,8 @@ def translate(word):
         return data[word.capitalize()]
     elif proper_noun(word) in data:
         return data[proper_noun(word)]
+    elif word.upper() in data:
+        return data[word.upper()]
     elif len(get_close_matches(word,data.keys(),cutoff=0.8))>0 :
         match=get_close_matches(word,data.keys(),cutoff=0.8)
         ans=input("Did you mean %s instead ?\nEnter Y for yes and N for no. \n" % match[0])
